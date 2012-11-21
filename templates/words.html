@@ -1,0 +1,49 @@
+$def with (words)
+
+
+        <div class="menu">
+            <ul>
+                <li><a href="/" >首页</a></li>
+                <li><a href="/events" >生平年表</a></li>
+                <li><a href="/articles" >冬冬文集</a></li>
+                <li><a href="/photos" >冬冬照片</a></li>
+                <li><a href="/vedios" >冬冬视频</a></li>
+                <li><a href="/memories" >追忆文章</a></li>
+                <li><a class="selected" href="/words" >友人留言</a></li>
+            </ul>
+        </div>
+
+        <div class="head">
+            <h1>严冬冬</h1>
+            <h2>1984.11.16 - 2012.07.09</h2>
+            <h2>自由登山者，自由职业翻译</h2>
+        </div>
+
+<hr />
+
+<div class="line">
+<a class="word_create button" href="/words/create" >我想留言</a>
+</div>
+
+<div class="words">
+$for word in words:
+    <ul class="words">
+        <li><h4>$word.title</h4></li>
+        <li>$word.content</li>
+        <li class="author">
+        $if word.author:
+            $word.author
+        $else:
+            匿名
+        &nbsp;&nbsp;
+        $word.time.date()
+        </li>
+        <li>
+        $if session.get('isAdmin','1'):
+            <a class="button" href="/word/delete/$word.id" >删除</a>
+            <a class="button" href="/word/hide/$word.id" >隐藏</a>
+            <a class="button" href="/word/show/$word.id" >显示</a>
+        </li>
+
+    </ul>
+</div>

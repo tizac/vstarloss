@@ -1,0 +1,46 @@
+$def with (year, filename, total, idx)
+
+
+<div class="menu">
+    <ul>
+        <li><a href="/" >首页</a></li>
+        <li><a href="/events" >生平年表</a></li>
+        <li><a href="/articles" >冬冬文集</a></li>
+        <li><a class="selected" href="/photos" >冬冬照片</a></li>
+                <li><a href="/vedios" >冬冬视频</a></li>
+        <li><a href="/memories" >追忆文章</a></li>
+        <li><a href="/words" >友人留言</a></li>
+        
+    </ul>
+</div>
+
+<div class="head">
+    <h1>严冬冬</h1>
+    <h2>1984.11.16 - 2012.07.09</h2>
+    <h2>自由登山者，自由职业翻译</h2>
+</div>
+
+<hr>
+
+<div class="h4">
+&gt;
+<a class="h4" href="/photos">冬冬照片</a>
+&gt;<a class="h4" href="/photos/year/$year" >$year年照片</a>
+&gt;<a class="h4" href="" >$filename</a>
+</div>
+
+<div class="photo_view">
+    <a class="photo" href="/photo/$year/$(idx+1)">
+        <img src="/static/photo/$(year)/$(filename)" />
+    </a>
+</div>
+
+<div class="m20">
+<div class="page">
+    $if idx>0:
+        <a href="/photo/$year/$(idx-1)">&lt;上一张</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+    $if idx+1<total:
+        <a href="/photo/$year/$(idx+1)">下一张&gt;</a>
+</div>
+</div>

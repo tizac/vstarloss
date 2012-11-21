@@ -1,0 +1,49 @@
+$def with (catalogs)
+
+
+        <div class="menu">
+            <ul>
+                <li><a href="/" >首页</a></li>
+                <li><a href="/events" >生平年表</a></li>
+                <li><a href="/articles" >冬冬文集</a></li>
+                <li><a href="/photos" >冬冬照片</a></li>
+                <li><a href="/vedios" >冬冬视频</a></li>
+                <li><a  class="selected" href="/memories" >追忆文章</a></li>
+                <li><a href="/words" >友人留言</a></li>
+            </ul>
+        </div>
+
+        <div class="head">
+            <h1>严冬冬</h1>
+            <h2>1984.11.16 - 2012.07.09</h2>
+            <h2>自由登山者，自由职业翻译</h2>
+        </div>
+
+<hr />
+
+<!--div class="intro">
+<span>目录</span>
+<hr>
+<ul>
+    $for c in catalogs:
+        <li><a href="/articles#$c.id">$c.name</a></li>
+</ul>
+</div-->
+
+$for catalog in catalogs:
+    <div>
+        <a class="h3" href="/articles/catalog/$catalog.id" >
+            $catalog.name...(共$catalog.count篇)
+        </a>
+        <ul class="article">
+            $for a in catalog.article:
+                <li>
+                    <a href="/article/$a.id">
+                    $a.title
+                    $if a.time:
+                        <span class="right">$a.time.date()</span>
+                    </a>
+                </li>
+        </ul>
+    <hr>
+    </div>

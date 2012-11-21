@@ -1,0 +1,72 @@
+$def with (catalogs, catalog, articles)
+
+
+        <div class="menu">
+            <ul>
+                <li><a href="/" >首页</a></li>
+                <li><a href="/events" >生平年表</a></li>
+                $if catalog.id<100:
+                    <li><a class="selected" href="/articles" >冬冬文集</a></li>
+                $else:
+                    <li><a href="/articles" >冬冬文集</a></li>
+                <li><a href="/photos" >冬冬照片</a></li>
+                <li><a href="/vedios" >冬冬视频</a></li>
+                $if catalog.id<100:
+                    <li><a href="/memories" >追忆文章</a></li>
+                $else:
+                    <li><a class="selected" href="/memories" >追忆文章</a></li>
+                <li><a href="/words" >友人留言</a></li>
+            </ul>
+        </div>
+
+        <div class="head">
+            <h1>严冬冬</h1>
+            <h2>1984.11.16 - 2012.07.09</h2>
+            <h2>自由登山者，自由职业翻译</h2>
+        </div>
+
+<hr />
+
+<div class="intro">
+<span>目录</span>
+<hr>
+<ul>
+    $for c in catalogs:
+        $if c.id == catalog.id:
+            <li><a class='active' href="/articles/catalog/$c.id">$c.name</a></li>
+        $else:
+            <li><a href="/articles/catalog/$c.id">$c.name</a></li>
+</ul>
+</div>
+
+
+<div class="content">
+
+<div class="h4">
+&gt;
+$if catalog.id<100:
+    <a class="h4" href="/articles">冬冬文集</a>
+$else:
+    <a class="h4" href="/memories">追忆文章</a>
+&gt;<a class="h4" href="" >$catalog.name</a>
+</div>
+
+
+<div class="m20">
+$if session.get('isAdmin','1'):
+    <a class="button" href="/articles/catalog/create/$catalog.id" >添加文章</a>
+</div>
+
+<ul class="catalog">
+$for article in articles:
+    <li>
+        $if session.get('isAdmin','1'):
+            <a class="button" href="/article/edit/$article.id" >修改文章</a>
+        <a href="/article/$article.id" >$article.title</a>
+        $if article.time:
+            <span class="right">$article.time.date()</span>
+        <!--span class="content" >$:article.content_to_html()[0:100]</span-->
+    </li>
+</ul>
+
+</div>

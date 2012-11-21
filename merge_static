@@ -1,0 +1,20 @@
+#!/usr/bin/python
+#coding:utf8
+
+import os
+import re
+
+m = re.compile('.*/')
+s = m.match(os.getcwd())
+path = s.group(0)
+
+#path = '/home/tizac/camp/sites/static'
+
+dirs = ['book', 'icon210', 'img', 'photo', 'vedio_img']
+
+for d in dirs:
+    cmd = 'rm ./static/%s' % (d)
+    os.system(cmd)
+    cmd = 'ln -s %sstatic/%s ./static/' % (path, d)
+    os.system(cmd)
+

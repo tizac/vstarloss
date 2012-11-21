@@ -1,0 +1,26 @@
+$def with ()
+$if session.isAdmin == 1:
+    <div class="m20">
+        Welcome, Admin.
+        <a href="/">返回首页</a>
+    </div>
+$else:
+    <form method="Post" action="/login">
+    <div class="login">
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" name='username' /></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" name='password' /></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" name='submit' value="登录" /></td>
+        </tr>
+    </table>
+    </div>
+    </form>

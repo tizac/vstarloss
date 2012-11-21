@@ -1,0 +1,87 @@
+$def with (article, catalog)
+
+
+<div class="menu">
+    <ul>
+        <li><a href="/" >首页</a></li>
+        <li><a href="/events" >生平年表</a></li>
+        <li><a class="selected" href="/articles" >冬冬文集</a></li>
+        <li><a href="/photos" >冬冬照片</a></li>
+                <li><a href="/vedios" >冬冬视频</a></li>
+        <li><a href="/memories" >追忆文章</a></li>
+        <li><a href="/words" >友人留言</a></li>
+    </ul>
+</div>
+
+<div class="head">
+    <h1>严冬冬</h1>
+    <h2>1984.11.16 - 2012.07.09</h2>
+    <h2>自由登山者，自由职业翻译</h2>
+</div>
+
+<hr />
+
+<div class="m20">
+<table class="words">
+<form action="/article/edit/$article.id" method="POST">
+    <tr>
+        <th>标题：</th>
+        <td><input type="text" name="title" value="$article.title"  ></td>
+    </tr>
+    <tr>
+        <th>发表时间：</th>
+        $if article.time:
+            <td><input type="text" name="time" value="$article.time.date()" ></td>
+        $else:
+            <td><input type="text" name="time" value="" ></td>
+    </tr> 
+    <tr>
+        <th>来源：</th>
+        <td><input type="text" name="source" value="$article.source" ></td>
+    </tr> 
+    <tr>
+        <th>分类：</th>
+        <td>
+            <select name="catalog" >
+                $for ct in catalog:
+                    $if ct==article.catalog:
+                        <option value="$ct.name" selected="selected">$ct.name</option>
+                    $else:
+                        <option value="$ct.name">$ct.name</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>内容：</th>
+        <td><textarea class="content" name="content">$article.content</textarea></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td><input class="submit" type="submit" name="submit" value="修改文章" />
+        <input class="submit" type="submit" name="submit" value="删除文章" /></td>
+    </tr> 
+</form>
+</table>
+</div>
+
+<div class="m20">
+$if session.get('isAdmin','1'):
+    <a class="button" href="/article/image/upload/$article.id" >上传图片</a>
+</div>
+
+<div class="m20">
+<table class="upload">
+$for img in article.image:
+    <tr>
+        <td><img src="/static/img/$img.name" ></td>
+        <td>&lt;img class="w80" src="/static/img/$img.name"&gt;</td>
+        <td>
+            <form action="/image/delete/$img.id" method="Post">
+                <input type="submit" value="删除图片">
+            </form>
+        </td>
+    </tr>
+</table>
+</div>
+
+

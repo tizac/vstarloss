@@ -1,0 +1,122 @@
+$def with (catalogs)
+
+
+        <div class="menu">
+            <ul>
+                <li><a href="/" >首页</a></li>
+                <li><a href="/events" >生平年表</a></li>
+                <li><a href="/articles" >冬冬文集</a></li>
+                <li><a href="/photos" >冬冬照片</a></li>
+                <li><a class="selected" href="/vedios" >冬冬视频</a></li>
+                <li><a href="/memories" >追忆文章</a></li>
+                <li><a href="/words" >友人留言</a></li>
+            </ul>
+        </div>
+
+        <div class="head">
+            <h1>严冬冬</h1>
+            <h2>1984.11.16 - 2012.07.09</h2>
+            <h2>自由登山者，自由职业翻译</h2>
+        </div>
+
+<hr />
+
+
+$if session.get('isAdmin','1'):
+    <div class="m20">
+        <a class="button" href="/vedio/create" >添加视频</a>
+    </div>
+
+$for catalog in catalogs:
+    <div class="m20">
+        <a class="h3" href="" >
+            $catalog.name
+        </a>
+        <ul class="vedio">
+        $for vedio in catalog.vedio:
+            <li><a href="/vedio/$vedio.id">
+                <img src="/static/vedio_img/$(vedio.id).jpg" >
+                <span>$vedio.title</span>
+            $if session.get('isAdmin','1'):
+                <a class="button" href="/vedio/edit/$vedio.id">修改视频</a>
+            </a></li>
+        </ul>
+    </div>
+
+
+
+<!--div class="m20">
+    <a class="h3" href="" >
+        寤寐幺妹
+    </a>
+    <ul class="vedio">
+        <li><a href="/vedio/1">
+            <img src="/static/vedio_img/1.jpg" >
+            <span>寤寐幺妹1</span>
+        </a></li>
+
+        <li><a href="/vedio/2">
+            <img src="/static/vedio_img/2.jpg" >
+            <span>寤寐幺妹2</span>
+        </a></li>
+
+        <li><a href="/vedio/3">
+            <img src="/static/vedio_img/3.jpg" >
+            <span>寤寐幺妹3</span>
+        </a></li>
+
+        <li><a href="/vedio/4">
+            <img src="/static/vedio_img/4.jpg" >
+            <span>寤寐幺妹4</span>
+        </a></li>
+
+        <li><a href="/vedio/5">
+            <img src="/static/vedio_img/5.jpg" >
+            <span>寤寐幺妹5</span>
+        </a></li>
+        <li><a href="/vedio/6">
+            <img src="/static/vedio_img/6.jpg" >
+            <span>寤寐幺妹6</span>
+        </a></li>
+
+        <li><a href="/vedio/7">
+            <img src="/static/vedio_img/7.jpg" >
+            <span>寤寐幺妹7</span>
+        </a></li>
+
+        <li><a href="/vedio/8">
+            <img src="/static/vedio_img/8.jpg" >
+            <span>寤寐幺妹8</span>
+        </a></li>
+        <li><a href="/vedio/9">
+            <img src="/static/vedio_img/9.jpg" >
+            <span>寤寐幺妹9</span>
+        </a></li>
+    </ul>
+<hr />
+</div>
+
+<div class="m20">
+    <a class="h3" href="" >
+    自由之舞
+    </a>
+    <ul class="vedio">
+        <li><a href="/vedio/11">
+            <img src="/static/vedio_img/11.jpg" >
+            <span>自由之舞</span>
+        </a></li>
+    </ul>
+</div>
+
+<hr />
+
+<div class="m20">
+    <div class="h3">纪念陈家慧</div>
+    <ul class="vedio">
+        <li><a href="/vedio/10">
+            <img src="/static/vedio_img/10.jpg" >
+            <span>纪念陈家慧</span>
+        </a></li>
+    </ul>
+
+</div-->

@@ -1,0 +1,62 @@
+$def with (catalog, catalogs)
+
+
+<div class="menu">
+    <ul>
+        <li><a href="/" >首页</a></li>
+        <li><a href="/events" >生平年表</a></li>
+        <li><a class="selected" href="/articles" >冬冬文集</a></li>
+        <li><a href="/photos" >冬冬照片</a></li>
+                <li><a href="/vedios" >冬冬视频</a></li>
+        <li><a href="/memories" >追忆文章</a></li>
+        <li><a href="/words" >友人留言</a></li>
+    </ul>
+</div>
+
+<div class="head">
+    <h1>严冬冬</h1>
+    <h2>1984.11.16 - 2012.07.09</h2>
+    <h2>自由登山者，自由职业翻译</h2>
+</div>
+
+<hr />
+
+<div class="word">
+<form action="/articles/catalog/create/$catalog.id" method="POST">
+    <table class="words">
+    <tr>
+        <th>标题：</th>
+        <td><input type="text" name="title" /></td>
+    </tr>
+    <tr>
+        <th>发表时间：</th>
+        <td><input type="text" name="time" /></td>
+    </tr> 
+    <tr>
+        <th>来源：</th>
+        <td><input type="text" name="source" /></td>
+    </tr> 
+    <tr>
+        <th>分类：</th>
+        <td>
+            <select name="catalog" >
+                $for ct in catalogs:
+                    $if catalog.id == ct.id:
+                        <option value="$ct.name" selected="selected">$ct.name</option>
+                    $else:
+                        <option value="$ct.name">$ct.name</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>内容：</th>
+        <td><textarea class="content" name="content"></textarea></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td><input class="submit" type="submit" name="submit" value="提交" /></td>
+    </tr> 
+
+    </table>
+</form>
+</div>

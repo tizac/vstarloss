@@ -1,0 +1,35 @@
+$def with ()
+
+
+<div class="menu">
+    <ul>
+        <li><a href="/" >首页</a></li>
+        <li><a href="/events" >生平年表</a></li>
+        <li><a href="/articles" >冬冬文集</a></li>
+        <li><a class="selected" href="/photos" >冬冬照片</a></li>
+                <li><a href="/vedios" >冬冬视频</a></li>
+        <li><a href="/memories" >追忆文章</a></li>
+        <li><a href="/words" >友人留言</a></li>
+        
+    </ul>
+</div>
+
+<div class="head">
+    <h1>严冬冬</h1>
+    <h2>1984.11.16 - 2012.07.09</h2>
+    <h2>自由登山者，自由职业翻译</h2>
+</div>
+
+<hr />
+
+<div class="photos" >
+    <ul class="photos">
+    $for year in range(2002,2013):
+        <li>
+            <a class="photo" href="/photos/year/$year">
+                <img src="/static/photo/profile/$(year).JPG" >
+                <div>$(year)年</div>
+            </a>
+        </li>
+    </ul>
+</div>
