@@ -230,7 +230,7 @@ class memories:
 
 class vedios:
     def GET(self):
-        catalogs = web.ctx.orm.query(Catalog).filter(Catalog.channel==3).order_by(Catalog.name).all()
+        catalogs = web.ctx.orm.query(Catalog).filter(Catalog.channel==3).order_by(Catalog.weight).all()
         return render.vedios(catalogs)
 
 
