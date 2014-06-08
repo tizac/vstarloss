@@ -1,4 +1,4 @@
-$def with (year, filename, total, idx)
+$def with (IMG_SERVER, year, filename, total, idx)
 
 
 <div class="menu">
@@ -31,7 +31,7 @@ $def with (year, filename, total, idx)
 
 <div class="photo_view">
     <a class="photo" href="/photo/$year/$(idx+1)">
-        <img src="/static/photo/$(year)/$(filename)" />
+        <img src="$(IMG_SERVER)/static/photo/$(year)/$(filename)" />
     </a>
 </div>
 

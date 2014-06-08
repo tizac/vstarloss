@@ -1,4 +1,4 @@
-$def with ()
+$def with (IMG_SERVER)
 
 
 <div class="menu">
@@ -28,7 +28,7 @@ $def with ()
         <li class="pure-u-1-3">
             <div class="photos-album">
             <a class="photo" href="/photos/year/$year">
-                <img src="/static/photo/profile/$(year).JPG" >
+                <img src="${IMG_SERVER}/static/photo/profile/$(year).JPG" >
                 <p class="title">$(year)年</p>
             </a>
             </div>

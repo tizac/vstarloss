@@ -1,4 +1,4 @@
-$def with (year, files)
+$def with (IMG_SERVER, year, files)
 
 
 <div class="menu">
@@ -32,7 +32,7 @@ $def with (year, files)
 $for index in range(0,len(files)):
     <div class="photo">
         <a class="photo" href="/photo/$(year)/$index">
-        <img src="/static/icon210/$(year)/$files[index]" />
+        <img src="$(IMG_SERVER)/static/icon210/$(year)/$files[index]" />
         </a>
     </div>
 </div>
