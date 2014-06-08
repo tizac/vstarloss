@@ -16,3 +16,4 @@
 
 *.db
 sessions
+static/photo

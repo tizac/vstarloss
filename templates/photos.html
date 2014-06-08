@@ -23,13 +23,15 @@ $def with ()
 <hr />
 
 <div class="photos" >
-    <ul class="photos">
+    <ul class="photos pure-g">
     $for year in range(2002,2013):
-        <li>
+        <li class="pure-u-1-3">
+            <div class="photos-album">
             <a class="photo" href="/photos/year/$year">
                 <img src="/static/photo/profile/$(year).JPG" >
-                <div>$(year)年</div>
+                <p class="title">$(year)年</p>
             </a>
+            </div>
         </li>
     </ul>
 </div>
